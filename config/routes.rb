@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
+  get '/logout', to: 'sessions#destroy'
+
 end

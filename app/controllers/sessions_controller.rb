@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   # strategy. We'll remove this when we move to a "real" provider.
   skip_before_action :verify_authenticity_token, only: :create
 
-  def xcreate
+  def create
     # After entering a name and email value in the /auth/developer
     # path and submitting the form, you will see a pretty-print of
     # the authentication data object that comes from the "developer"
@@ -20,4 +20,16 @@ class SessionsController < ApplicationController
     # Ye olde redirect
     redirect_to root_path
   end
+
+  # def create
+  #   @user = User.find_or_create_from_auth_hash(auth_hash)
+  #   self.current_user = @user
+  #   redirect_to '/'
+  # end
+
+  # protected
+
+  # def auth_hash
+  #   request.env['omniauth.auth']
+  # end
 end
